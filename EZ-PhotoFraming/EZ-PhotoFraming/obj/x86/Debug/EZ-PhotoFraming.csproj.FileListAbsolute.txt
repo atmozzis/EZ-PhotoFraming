@@ -1,0 +1,9 @@
+C:\Documents and Settings\moeaun\my documents\visual studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\bin\Debug\EZ-PhotoFraming.exe
+C:\Documents and Settings\moeaun\my documents\visual studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\bin\Debug\EZ-PhotoFraming.pdb
+C:\Documents and Settings\moeaun\my documents\visual studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\moeaun\my documents\visual studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\PhotoFraming.Properties.Resources.resources
+C:\Documents and Settings\moeaun\my documents\visual studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\moeaun\my documents\visual studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\moeaun\my documents\visual studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ-PhotoFraming.exe
+C:\Documents and Settings\moeaun\my documents\visual studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ-PhotoFraming.pdb
+C:\Documents and Settings\moeaun\my documents\visual studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\PhotoFraming.Processing.resources

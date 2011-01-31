@@ -1,0 +1,8 @@
+C:\Documents and Settings\moeaun\Local Settings\Application Data\Temporary Projects\PhotoFraming\bin\Debug\PhotoFraming.exe
+C:\Documents and Settings\moeaun\Local Settings\Application Data\Temporary Projects\PhotoFraming\bin\Debug\PhotoFraming.pdb
+C:\Documents and Settings\moeaun\Local Settings\Application Data\Temporary Projects\PhotoFraming\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\moeaun\Local Settings\Application Data\Temporary Projects\PhotoFraming\obj\x86\Debug\PhotoFraming.Properties.Resources.resources
+C:\Documents and Settings\moeaun\Local Settings\Application Data\Temporary Projects\PhotoFraming\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\moeaun\Local Settings\Application Data\Temporary Projects\PhotoFraming\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\moeaun\Local Settings\Application Data\Temporary Projects\PhotoFraming\obj\x86\Debug\PhotoFraming.exe
+C:\Documents and Settings\moeaun\Local Settings\Application Data\Temporary Projects\PhotoFraming\obj\x86\Debug\PhotoFraming.pdb
