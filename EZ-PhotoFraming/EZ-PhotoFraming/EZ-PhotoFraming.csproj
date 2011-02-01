@@ -66,6 +66,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -87,6 +88,27 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="069467-blue-chrome-rain-icon-alphanumeric-x-styled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="004783-blue-chrome-rain-icon-arrows-arrows-rotated.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="017798-blue-chrome-rain-icon-symbols-shapes-smileyfacesad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="069345-blue-chrome-rain-icon-alphanumeric-exclamation-point1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="000614-blue-chrome-rain-icon-media-a-media22-arrow-forward1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="000616-blue-chrome-rain-icon-media-a-media24-arrows-seek-forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\069349-blue-chrome-rain-icon-alphanumeric-icon_091.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
