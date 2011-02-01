@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using IWshRuntimeLibrary;
 
 namespace PhotoFraming
 {
@@ -26,70 +27,95 @@ namespace PhotoFraming
             else
             {
                 e.Effect = DragDropEffects.None;
-                return;
             }
         }
 
         private void dirTree_DragDrop(object sender, DragEventArgs e)
         {
-            foreach (var fullname in (String[])e.Data.GetData(DataFormats.FileDrop))
+            ProcessDrop((String[])e.Data.GetData(DataFormats.FileDrop));
+        }
+
+        private void ProcessDrop(String[] eData)
+        {
+            foreach (var fullname in eData)
             {
-                String dir = Path.GetDirectoryName(fullname);
-                String filename = Path.GetFileName(fullname);
-                String ext = Path.GetExtension(fullname); // '' or '.zip' or '.msi'
+                String dir, filename, ext;
+                if (Helper.ParsePath(fullname, out dir, out filename, out ext) == false) return;
 
-                if (dir == String.Empty) return; // Invalid Path
-
+                if (ext == ".lnk")
+                {
+                    WshShell wsh = new WshShell();
+                    IWshShortcut wshort = (IWshShortcut)wsh.CreateShortcut(fullname);
+                    if (Helper.ParsePath(wshort.TargetPath, out dir, out filename, out ext) == false) return;
+                }
+                
                 if (ext == String.Empty) // This is a Folder
                 {
-                    foreach (TreeNode node in dirTree.Nodes)
-                    {
-                        if (fullname == node.Text)
-                        {
-                            // Duplicate Directory Found - remove all listed files
-                            node.Nodes.Clear();
-
-                            // Adding files to the Directory Node
-                            foreach (String tN in Directory.GetFiles(fullname))
-                            {
-                                node.Nodes.Add(Path.GetFileName(tN));
-                            }
-                            return;
-                        }
-                    }
-
-                    // No Duplicate Directory
-                    List<TreeNode> neonode = new List<TreeNode>();
-                    foreach (String neofilename in Directory.GetFiles(fullname))
-                    {
-                        neonode.Add(new TreeNode(Path.GetFileName(neofilename)));
-                    }
-                    dirTree.Nodes.Add(new TreeNode(fullname,neonode.ToArray()));
+                    AddNodeDirectory(dir);
                 }
                 else
                 {
-                    foreach (TreeNode node in dirTree.Nodes)
+                    if (checkExtension(ext))
                     {
-                        if (dir == node.Text)
-                        {
-                            foreach (TreeNode subnode in node.Nodes)
-                            {
-                                if (filename == subnode.Text)
-                                {
-                                    return; // Duplicate File Found
-                                }
-                            }
-
-                            node.Nodes.Add(new TreeNode(filename));
-                            return; // Duplicate Directory Found
-                        }
+                        AddNodeFile(dir, filename);
                     }
+                }
+                return;
+            }
+        }
 
-                    // No Duplicate Directory or File Found
-                    dirTree.Nodes.Add(new TreeNode(dir, new TreeNode[1] { new TreeNode(filename) }));
+        private Boolean checkExtension(String ext)
+        {
+            ext = ext.Remove(0, 1);
+            if (ext == "bmp"
+                || ext == "jpg"
+                || ext == "gif"
+                || ext == "png"
+                )
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        private void AddNodeDirectory(String dir)
+        {
+            if (dirTree.Nodes[dir] == null)
+            {
+                dirTree.Nodes.Add(dir, dir);
+            }
+            else
+            {
+                dirTree.Nodes[dir].Nodes.Clear();
+            }
+
+            foreach (String fN in Directory.GetFiles(dir))
+            {
+                String ext = Path.GetExtension(fN);
+                if (checkExtension(ext))
+                {
+                    String Key = Path.GetFileName(fN);
+                    dirTree.Nodes[dir].Nodes.Add(Key, Key);
                 }
             }
 
+            if (dirTree.Nodes[dir].Nodes.Count == 0)
+            {
+                dirTree.Nodes[dir].Remove();
+            }
+        }
+
+        private void AddNodeFile(String dir, String filename)
+        {
+            if (dirTree.Nodes[dir] == null)
+            {
+                dirTree.Nodes.Add(dir, dir);
+            }
+
+            if (dirTree.Nodes[dir].Nodes[filename] == null)
+            {
+                dirTree.Nodes[dir].Nodes.Add(filename, filename);
+            }
         }
     }
 }
