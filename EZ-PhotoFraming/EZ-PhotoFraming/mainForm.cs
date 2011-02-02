@@ -12,12 +12,13 @@ using System.Windows.Forms;
 
 namespace PhotoFraming
 {
-    public partial class Processing : Form
+    public partial class mainForm : Form
     {
         int ptBoxDefault_Width, ptBoxDefault_Height;
         Boolean AllowDropNotProcessing;
+        SettingsForm settingsForm;
 
-        public Processing()
+        public mainForm()
         {
             InitializeComponent();
 
@@ -29,6 +30,9 @@ namespace PhotoFraming
             ptBoxDefault_Width = ptBox.Width;
             ptBoxDefault_Height = ptBox.Height;
             AllowDropNotProcessing = true;
+
+            settingsForm = new SettingsForm();
+            settingsForm.VisibleChanged += new EventHandler(settingsForm_VisibleChanged);
         }
 
         private void dirTree_DragEnter(object sender, DragEventArgs e)
@@ -261,6 +265,8 @@ namespace PhotoFraming
             startallBtn.Enabled = false;
             startselectedBtn.Enabled = false;
             removeDirBtn.Enabled = false;
+            settingsForm.groupBox1.Enabled = false;
+            settingsForm.groupBox2.Enabled = false;
             StopProcessBtn.Enabled = true;
             StartProcessing();
         }
@@ -272,6 +278,8 @@ namespace PhotoFraming
             startallBtn.Enabled = true;
             startselectedBtn.Enabled = true;
             removeDirBtn.Enabled = true;
+            settingsForm.groupBox1.Enabled = true;
+            settingsForm.groupBox2.Enabled = true;
             StopProcessBtn.Enabled = false;
             progressBar.Visible = false;
         }
@@ -315,7 +323,7 @@ namespace PhotoFraming
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
             backgroundWorker.ReportProgress(10, "Loading Photo");
             Image imgPhoto = Image.FromFile(sourcefile, true);
-            int FrameThickness = (int)(0.03 * imgPhoto.Width); // 10 pixels
+            int FrameThickness = (int)((double)Properties.Settings.Default.FrameThickness * 0.01 * imgPhoto.Width);
             int ImageLengthLimit = 1280; // 1280 pixels
 
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
@@ -336,8 +344,11 @@ namespace PhotoFraming
             backgroundWorker.ReportProgress(70, "Processing Photo");
             Pen gPen = new Pen(Color.White, FrameThickness);
             int halfFrameThickness = FrameThickness / 2;
-            gCanvas.DrawRectangle(gPen, halfFrameThickness, halfFrameThickness,
-                bOutput.Width - FrameThickness, bOutput.Height - FrameThickness);
+
+            gCanvas.FillRectangle(new SolidBrush(Properties.Settings.Default.FrameColor), 0, 0, bOutput.Width, bOutput.Height);
+
+            //gCanvas.DrawRectangle(gPen, halfFrameThickness, halfFrameThickness,
+            //    bOutput.Width - FrameThickness, bOutput.Height - FrameThickness);
             gCanvas.DrawImageUnscaled(imgPhoto, new Point(FrameThickness, FrameThickness));
 
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
@@ -394,6 +405,27 @@ namespace PhotoFraming
         private void stopProcessBtn_Click(object sender, EventArgs e)
         {
             backgroundWorker.CancelAsync();
+        }
+
+        
+        private void settingsBtn_Click(object sender, EventArgs e)
+        {
+            if (settingsBtn.Checked)
+            {
+                settingsForm.Show(this);
+            }
+            else
+            {
+                settingsForm.Hide();
+            }
+        }
+
+        private void settingsForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!((Form)sender).Visible)
+            {
+                settingsBtn.Checked = false;
+            }
         }
     }
 }

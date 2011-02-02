@@ -50,6 +50,7 @@ namespace PhotoFraming
             encoderParams.Param[0] = qualityParam;
 
             img.Save(path, jpegCodec, encoderParams);
+            img.Dispose();
         }
 
         static public ImageCodecInfo getEncoderInfo(string mimeType)

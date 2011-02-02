@@ -1798,6 +1798,12 @@
         j4Eh+8E351knee1E9STHwJZxDPxfqnaWa4aH0OsAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\favicon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LogoIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\069333-blue-chrome-rain-icon-alphanumeric-caret.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PauseIco" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAUAAAAFACAYAAADNkKWqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -3690,6 +3696,9 @@
         hmsWrlmr6UAAwLD6Bx0IOtC2OtC2A2+1lSyMJ7CzoAOD14EAgGH1DzoQdKBtdaBtBx5Wy8GvluGahWvW
         ajoQADCs/kEHgg60rQ78P1xa0ZeLEmG7AAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="SettingsIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\017749-blue-chrome-rain-icon-symbols-shapes-cube.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StartAllIco" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

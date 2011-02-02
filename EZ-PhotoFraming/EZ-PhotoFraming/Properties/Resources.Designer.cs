@@ -81,6 +81,20 @@ namespace PhotoFraming.Properties {
             }
         }
         
+        internal static System.Drawing.Icon Logo {
+            get {
+                object obj = ResourceManager.GetObject("Logo", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap LogoIco {
+            get {
+                object obj = ResourceManager.GetObject("LogoIco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap PauseIco {
             get {
                 object obj = ResourceManager.GetObject("PauseIco", resourceCulture);
@@ -91,6 +105,13 @@ namespace PhotoFraming.Properties {
         internal static System.Drawing.Bitmap RemoveIco {
             get {
                 object obj = ResourceManager.GetObject("RemoveIco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap SettingsIco {
+            get {
+                object obj = ResourceManager.GetObject("SettingsIco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

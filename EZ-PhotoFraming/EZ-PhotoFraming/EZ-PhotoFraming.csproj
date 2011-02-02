@@ -47,16 +47,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper.cs" />
-    <Compile Include="Processing.cs">
+    <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Processing.Designer.cs">
-      <DependentUpon>Processing.cs</DependentUpon>
+    <Compile Include="mainForm.Designer.cs">
+      <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Processing.resx">
-      <DependentUpon>Processing.cs</DependentUpon>
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="mainForm.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -68,6 +74,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -97,6 +107,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\000620-blue-chrome-rain-icon-media-a-media28-stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\000614-blue-chrome-rain-icon-media-a-media22-arrow-forward1.png" />
+    <None Include="images\000616-blue-chrome-rain-icon-media-a-media24-arrows-seek-forward.png" />
+    <None Include="images\004783-blue-chrome-rain-icon-arrows-arrows-rotated.png" />
+    <None Include="images\069345-blue-chrome-rain-icon-alphanumeric-exclamation-point1.png" />
+    <None Include="images\069467-blue-chrome-rain-icon-alphanumeric-x-styled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\017749-blue-chrome-rain-icon-symbols-shapes-cube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\069333-blue-chrome-rain-icon-alphanumeric-caret.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\favicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
