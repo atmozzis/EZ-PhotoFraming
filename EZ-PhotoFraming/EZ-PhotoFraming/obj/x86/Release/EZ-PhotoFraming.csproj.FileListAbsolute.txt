@@ -18,3 +18,14 @@ C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-Pho
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Release\EZ-PhotoFraming.pdb
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Release\Interop.IWshRuntimeLibrary.dll
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Release\EZ-PhotoFraming.csproj.ResolveComReference.cache
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Release\Interop.IWshRuntimeLibrary.dll
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Release\EZ-PhotoFraming.csproj.ResolveComReference.cache
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Release\EZ-PhotoFraming.exe
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Release\ResolveAssemblyReference.cache
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Release\PhotoFraming.Processing.resources
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Release\PhotoFraming.Properties.Resources.resources
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Release\GenerateResource.read.1.tlog
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Release\GenerateResource.write.1.tlog
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\bin\Release\EZ-PhotoFraming.exe
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\bin\Release\EZ-PhotoFraming.pdb
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Release\EZ-PhotoFraming.pdb

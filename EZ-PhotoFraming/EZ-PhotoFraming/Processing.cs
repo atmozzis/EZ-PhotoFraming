@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using IWshRuntimeLibrary;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 
 namespace PhotoFraming
 {
@@ -221,42 +220,53 @@ namespace PhotoFraming
             if (dirTree.SelectedNode.Parent != null)
             {
                 backgroundWorker.RunWorkerAsync(dirTree.SelectedNode.FullPath);
-                statusLbl.Text = "Processing with Background Worker";
+                statusLbl.Text = "Stating Process with Background Worker";
             }
         }
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            String dir = (String)e.Argument;
-            int FrameThicnkness = 10; // 10 pixels
+            backgroundWorker.ReportProgress(10, "Process Initiating");
+            String sourcefile = (String)e.Argument;
+            String dir = Path.GetDirectoryName(sourcefile);
+            String filename = Path.GetFileNameWithoutExtension(sourcefile);
+            
 
-            Image imgPhoto = Image.FromFile(dir);
-            int phWidth = imgPhoto.Width; int phHeight = imgPhoto.Height;
+            backgroundWorker.ReportProgress(20, "Loading Photo");
+            Image imgPhoto = Image.FromFile(sourcefile, true);
+            int FrameThickness = (int)(0.03 * imgPhoto.Width); // 10 pixels
+            int ImageLengthLimit = 1280; // 1280 pixels
 
-            Bitmap bmPhoto = new Bitmap(phWidth + 20, phHeight + 20, PixelFormat.Format24bppRgb);
-            bmPhoto.SetResolution(72, 72);
+            backgroundWorker.ReportProgress(30, "Processing Photo");
+            Bitmap bOutput = new Bitmap(imgPhoto.Width + 2 * FrameThickness,
+                imgPhoto.Height + 2 * FrameThickness,
+                imgPhoto.PixelFormat);
+            bOutput.SetResolution(imgPhoto.HorizontalResolution,imgPhoto.VerticalResolution);
 
-            Graphics grPhoto = Graphics.FromImage(bmPhoto);
-            grPhoto.SmoothingMode = SmoothingMode.AntiAlias;
-            grPhoto.FillRectangle(new Brush(, new Rectangle(0, 0, bmPhoto.Width, bmPhoto.Height));
-            grPhoto.DrawImage(imgPhoto, new Rectangle(10, 10, phWidth, phHeight), 0, 0, phWidth, phHeight, GraphicsUnit.Pixel);
+            Graphics gCanvas = Graphics.FromImage(bOutput);
+            gCanvas.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            gCanvas.SmoothingMode = SmoothingMode.AntiAlias;
+            gCanvas.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
 
-            imgPhoto = Image.FromHbitmap(grPhoto);
-            //grPhoto.Dispose();
-            //grWatermark.Dispose();
+            Pen gPen = new Pen(Color.White, FrameThickness);
+            int halfFrameThickness = FrameThickness / 2;
+            gCanvas.DrawRectangle(gPen, halfFrameThickness, halfFrameThickness,
+                bOutput.Width - FrameThickness, bOutput.Height - FrameThickness);
+            gCanvas.DrawImageUnscaled(imgPhoto, new Point(FrameThickness, FrameThickness));
 
-            //\\watermark_final.jpg", 
-            //imgPhoto.Save(WorkingDirectory + "
-            //    ImageFormat.Jpeg);
-            //imgPhoto.Dispose();
-            //imgWatermark.Dispose();
-
-            e.Result = e.Argument;
+            backgroundWorker.ReportProgress(60, "Saving Processed Photo");
+            String outputfile = Path.Combine(dir,filename +"-result.jpg");
+            Helper.SaveJpeg(outputfile, bOutput, 100);
         }
 
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            statusLbl.Text = (String)e.Result;
+            statusLbl.Text = "Processed Photo Saved";
+        }
+
+        private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            statusLbl.Text = (String)e.UserState;
         }
 
         
