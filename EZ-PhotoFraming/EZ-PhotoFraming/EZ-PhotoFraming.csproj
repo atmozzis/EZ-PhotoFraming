@@ -92,6 +92,12 @@
   <ItemGroup>
     <None Include="images\069349-blue-chrome-rain-icon-alphanumeric-icon_091.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="images\000619-blue-chrome-rain-icon-media-a-media27-pause-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\000620-blue-chrome-rain-icon-media-a-media28-stop.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

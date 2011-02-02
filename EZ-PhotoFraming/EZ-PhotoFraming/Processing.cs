@@ -9,13 +9,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using IWshRuntimeLibrary;
 
 namespace PhotoFraming
 {
     public partial class Processing : Form
     {
         int ptBoxDefault_Width, ptBoxDefault_Height;
+        Boolean AllowDropNotProcessing;
 
         public Processing()
         {
@@ -28,11 +28,12 @@ namespace PhotoFraming
         {
             ptBoxDefault_Width = ptBox.Width;
             ptBoxDefault_Height = ptBox.Height;
+            AllowDropNotProcessing = true;
         }
 
         private void dirTree_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            if (AllowDropNotProcessing && e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 e.Effect = DragDropEffects.Link;
             }
@@ -52,15 +53,15 @@ namespace PhotoFraming
             foreach (var fullname in eData)
             {
                 String dir, filename, ext;
-                if (Helper.ParsePath(fullname, out dir, out filename, out ext) == false) return;
+                if (Helper.ParsePath(fullname, out dir, out filename, out ext) == false) continue;
 
                 if (ext == ".lnk")
                 {
-                    WshShell wsh = new WshShell();
-                    IWshShortcut wshort = (IWshShortcut)wsh.CreateShortcut(fullname);
-                    if (Helper.ParsePath(wshort.TargetPath, out dir, out filename, out ext) == false) return;
+                    IWshRuntimeLibrary.WshShell wsh = new IWshRuntimeLibrary.WshShell();
+                    IWshRuntimeLibrary.IWshShortcut wshort = (IWshRuntimeLibrary.IWshShortcut)wsh.CreateShortcut(fullname);
+                    if (Helper.ParsePath(wshort.TargetPath, out dir, out filename, out ext) == false) continue;
                 }
-                
+
                 if (ext == String.Empty) // This is a Folder
                 {
                     AddNodeDirectory(dir);
@@ -74,7 +75,6 @@ namespace PhotoFraming
                 }
 
                 dirTree.Nodes[dir].Expand();
-                return;
             }
         }
 
@@ -134,7 +134,7 @@ namespace PhotoFraming
 
         private void removeDirBtn_Click(object sender, EventArgs e)
         {
-            for (int i = dirTree.Nodes.Count-1; i >= 0; i--)
+            for (int i = dirTree.Nodes.Count - 1; i >= 0; i--)
             {
                 if (dirTree.Nodes[i].Checked)
                 {
@@ -142,18 +142,17 @@ namespace PhotoFraming
                 }
                 else
                 {
-                    for (int j = dirTree.Nodes[i].Nodes.Count-1; j >= 0; j--)
+                    for (int j = dirTree.Nodes[i].Nodes.Count - 1; j >= 0; j--)
                     {
                         if (dirTree.Nodes[i].Nodes[j].Checked)
                         {
                             dirTree.Nodes[i].Nodes[j].Remove();
                         }
                     }
-                }
-
-                if (dirTree.Nodes[i].Nodes.Count == 0)
-                {
-                    dirTree.Nodes[i].Remove();
+                    if (dirTree.Nodes[i].Nodes.Count == 0)
+                    {
+                        dirTree.Nodes[i].Remove();
+                    }
                 }
             }
         }
@@ -166,11 +165,13 @@ namespace PhotoFraming
             if (e.Node.Parent != null)
             {
                 ptBox.ImageLocation = e.Node.FullPath;
+                statusLbl.Text = "Loading Preview - " + e.Node.FullPath;
             }
             else
             {
                 ptBox.CancelAsync();
                 ptBox.ImageLocation = null;
+                statusLbl.Text = String.Empty;
             }
         }
 
@@ -187,6 +188,8 @@ namespace PhotoFraming
                 ptBoxAutoScale = true;
                 AutoScalePtBox();
             }
+
+            statusLbl.Text = dirTree.SelectedNode.FullPath;
         }
 
         private void ptBox_SizeChanged(object sender, EventArgs e)
@@ -212,63 +215,185 @@ namespace PhotoFraming
 
         private void startallBtn_Click(object sender, EventArgs e)
         {
+            for (int i = dirTree.Nodes.Count - 1; i >= 0; i--)
+            {
+                // Check all branches
+                for (int j = dirTree.Nodes[i].Nodes.Count - 1; j >= 0; j--)
+                {
+                    dirTree.Nodes[i].Nodes[j].Checked = true;
+                }
 
+                if (dirTree.Nodes[i].Nodes.Count == 0)
+                {
+                    dirTree.Nodes[i].Remove();
+                }
+            }
+
+            StartUIProcessing();
         }
 
         private void startselectedBtn_Click(object sender, EventArgs e)
         {
-            if (dirTree.SelectedNode.Parent != null)
+            for (int i = dirTree.Nodes.Count - 1; i >= 0; i--)
             {
-                backgroundWorker.RunWorkerAsync(dirTree.SelectedNode.FullPath);
-                statusLbl.Text = "Stating Process with Background Worker";
+                if (dirTree.Nodes[i].Checked)
+                {
+                    // Check all branches
+                    for (int j = dirTree.Nodes[i].Nodes.Count - 1; j >= 0; j--)
+                    {
+                        dirTree.Nodes[i].Nodes[j].Checked = true;
+                    }
+                }
+
+                if (dirTree.Nodes[i].Nodes.Count == 0)
+                {
+                    dirTree.Nodes[i].Remove();
+                }
             }
+
+            StartUIProcessing();
         }
 
+        private void StartUIProcessing()
+        {
+            AllowDropNotProcessing = false;
+            dirTree.Enabled = false;
+            startallBtn.Enabled = false;
+            startselectedBtn.Enabled = false;
+            removeDirBtn.Enabled = false;
+            StopProcessBtn.Enabled = true;
+            StartProcessing();
+        }
+
+        private void StopUIProcessing()
+        {
+            AllowDropNotProcessing = true;
+            dirTree.Enabled = true;
+            startallBtn.Enabled = true;
+            startselectedBtn.Enabled = true;
+            removeDirBtn.Enabled = true;
+            StopProcessBtn.Enabled = false;
+            progressBar.Visible = false;
+        }
+
+        private void StartProcessing()
+        {
+            for (int i = dirTree.Nodes.Count - 1; i >= 0; i--)
+            {
+                if (dirTree.Nodes[i].Nodes.Count != 0)
+                {
+                    // Check all branches
+                    for (int j = dirTree.Nodes[i].Nodes.Count - 1; j >= 0; j--)
+                    {
+                        if (dirTree.Nodes[i].Nodes[j].Checked)
+                        {
+                            dirTree.Nodes[i].BackColor = Color.Yellow;
+                            dirTree.Nodes[i].Nodes[j].BackColor = Color.Yellow;
+                            backgroundWorker.RunWorkerAsync(dirTree.Nodes[i].Nodes[j].FullPath);
+                            statusLbl.Text = "Starting Process with Background Worker";
+                            progressBar.Visible = true;
+                            return;
+                        }
+                    }
+                }
+            }
+
+            // No Selected Node
+            StopUIProcessing();
+        }
+        
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            backgroundWorker.ReportProgress(10, "Process Initiating");
+            e.Result = e.Argument;
+
+            if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
+            backgroundWorker.ReportProgress(0, "Process Initiating");
             String sourcefile = (String)e.Argument;
             String dir = Path.GetDirectoryName(sourcefile);
             String filename = Path.GetFileNameWithoutExtension(sourcefile);
-            
 
-            backgroundWorker.ReportProgress(20, "Loading Photo");
+            if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
+            backgroundWorker.ReportProgress(10, "Loading Photo");
             Image imgPhoto = Image.FromFile(sourcefile, true);
             int FrameThickness = (int)(0.03 * imgPhoto.Width); // 10 pixels
             int ImageLengthLimit = 1280; // 1280 pixels
 
+            if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
             backgroundWorker.ReportProgress(30, "Processing Photo");
             Bitmap bOutput = new Bitmap(imgPhoto.Width + 2 * FrameThickness,
                 imgPhoto.Height + 2 * FrameThickness,
                 imgPhoto.PixelFormat);
-            bOutput.SetResolution(imgPhoto.HorizontalResolution,imgPhoto.VerticalResolution);
+            bOutput.SetResolution(imgPhoto.HorizontalResolution, imgPhoto.VerticalResolution);
 
+            if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
+            backgroundWorker.ReportProgress(50, "Processing Photo");
             Graphics gCanvas = Graphics.FromImage(bOutput);
             gCanvas.InterpolationMode = InterpolationMode.HighQualityBicubic;
             gCanvas.SmoothingMode = SmoothingMode.AntiAlias;
             gCanvas.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
 
+            if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
+            backgroundWorker.ReportProgress(70, "Processing Photo");
             Pen gPen = new Pen(Color.White, FrameThickness);
             int halfFrameThickness = FrameThickness / 2;
             gCanvas.DrawRectangle(gPen, halfFrameThickness, halfFrameThickness,
                 bOutput.Width - FrameThickness, bOutput.Height - FrameThickness);
             gCanvas.DrawImageUnscaled(imgPhoto, new Point(FrameThickness, FrameThickness));
 
-            backgroundWorker.ReportProgress(60, "Saving Processed Photo");
-            String outputfile = Path.Combine(dir,filename +"-result.jpg");
+            if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
+            backgroundWorker.ReportProgress(90, "Saving Processed Photo");
+            String outputfile = Path.Combine(dir, filename + "-result.jpg");
+            for(int i = 2 ; File.Exists(outputfile) ; i++)
+            {
+                outputfile = Path.Combine(dir, filename + "-result" + i.ToString() + ".jpg");
+            }
             Helper.SaveJpeg(outputfile, bOutput, 100);
         }
 
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            statusLbl.Text = "Processed Photo Saved";
+            String dir = Path.GetDirectoryName((String)e.Result);
+            String filename = Path.GetFileName((String)e.Result);
+            dirTree.Nodes[dir].BackColor = Color.Empty;
+            dirTree.Nodes[dir].Nodes[filename].BackColor = Color.Empty;
+
+            if (e.Cancelled)
+            {
+                statusLbl.Text = "Processing Cancelled";
+
+                StopUIProcessing();
+            }
+            else
+            {
+                progressBar.Value = 100;
+                statusLbl.Text = "Processed Photo Saved";
+
+                if (dirTree.Nodes[dir] != null)
+                {
+                    if (dirTree.Nodes[dir].Nodes[filename] != null)
+                    {
+                        dirTree.Nodes[dir].Nodes[filename].Remove();
+                    }
+
+                    if (dirTree.Nodes[dir].Nodes.Count == 0)
+                    {
+                        dirTree.Nodes[dir].Remove();
+                    }
+                }
+
+                StartProcessing();
+            }
         }
 
         private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            progressBar.Value = e.ProgressPercentage;
             statusLbl.Text = (String)e.UserState;
         }
 
-        
+        private void stopProcessBtn_Click(object sender, EventArgs e)
+        {
+            backgroundWorker.CancelAsync();
+        }
     }
 }

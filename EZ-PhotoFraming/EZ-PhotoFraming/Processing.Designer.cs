@@ -29,27 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Processing));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node1 Child Sample");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node0 Sample", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.startallBtn = new System.Windows.Forms.ToolStripButton();
-            this.startselectedBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.removeDirBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.statusLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.dirTree = new System.Windows.Forms.TreeView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.ptBox = new System.Windows.Forms.PictureBox();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.ptBox = new System.Windows.Forms.PictureBox();
+            this.startallBtn = new System.Windows.Forms.ToolStripButton();
+            this.startselectedBtn = new System.Windows.Forms.ToolStripButton();
+            this.StopProcessBtn = new System.Windows.Forms.ToolStripButton();
+            this.removeDirBtn = new System.Windows.Forms.ToolStripButton();
+            this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -64,10 +60,9 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(50, 50);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripButton,
-            this.toolStripSeparator,
             this.startallBtn,
             this.startselectedBtn,
+            this.StopProcessBtn,
             this.toolStripSeparator2,
             this.removeDirBtn,
             this.toolStripSeparator1,
@@ -79,72 +74,15 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // openToolStripButton
-            // 
-            this.openToolStripButton.AutoSize = false;
-            this.openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
-            this.openToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.openToolStripButton.Name = "openToolStripButton";
-            this.openToolStripButton.Size = new System.Drawing.Size(46, 44);
-            this.openToolStripButton.Text = "&Open";
-            // 
-            // toolStripSeparator
-            // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 47);
-            // 
-            // startallBtn
-            // 
-            this.startallBtn.AutoSize = false;
-            this.startallBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.startallBtn.Image = global::PhotoFraming.Properties.Resources.StartAllIco;
-            this.startallBtn.Name = "startallBtn";
-            this.startallBtn.Size = new System.Drawing.Size(46, 44);
-            this.startallBtn.ToolTipText = "Process All Images";
-            this.startallBtn.Click += new System.EventHandler(this.startallBtn_Click);
-            // 
-            // startselectedBtn
-            // 
-            this.startselectedBtn.AutoSize = false;
-            this.startselectedBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.startselectedBtn.Image = global::PhotoFraming.Properties.Resources.StartIco;
-            this.startselectedBtn.Name = "startselectedBtn";
-            this.startselectedBtn.Size = new System.Drawing.Size(46, 44);
-            this.startselectedBtn.ToolTipText = "Process Selected Images";
-            this.startselectedBtn.Click += new System.EventHandler(this.startselectedBtn_Click);
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 47);
             // 
-            // removeDirBtn
-            // 
-            this.removeDirBtn.AutoSize = false;
-            this.removeDirBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.removeDirBtn.Image = global::PhotoFraming.Properties.Resources.RemoveIco;
-            this.removeDirBtn.Name = "removeDirBtn";
-            this.removeDirBtn.Size = new System.Drawing.Size(46, 44);
-            this.removeDirBtn.ToolTipText = "Remove Selected Images";
-            this.removeDirBtn.Click += new System.EventHandler(this.removeDirBtn_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 47);
-            // 
-            // helpToolStripButton
-            // 
-            this.helpToolStripButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.helpToolStripButton.AutoSize = false;
-            this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.helpToolStripButton.Image = global::PhotoFraming.Properties.Resources.HelpIco;
-            this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.helpToolStripButton.Name = "helpToolStripButton";
-            this.helpToolStripButton.Size = new System.Drawing.Size(46, 44);
-            this.helpToolStripButton.Text = "He&lp";
             // 
             // toolStripSeparator3
             // 
@@ -155,6 +93,7 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.progressBar,
             this.statusLbl});
             this.statusStrip1.Location = new System.Drawing.Point(0, 444);
             this.statusStrip1.Name = "statusStrip1";
@@ -162,11 +101,17 @@
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // progressBar
+            // 
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(100, 16);
+            this.progressBar.Visible = false;
+            // 
             // statusLbl
             // 
             this.statusLbl.Name = "statusLbl";
-            this.statusLbl.Size = new System.Drawing.Size(118, 17);
-            this.statusLbl.Text = "toolStripStatusLabel1";
+            this.statusLbl.Size = new System.Drawing.Size(38, 17);
+            this.statusLbl.Text = "Status";
             // 
             // notifyIcon1
             // 
@@ -175,22 +120,13 @@
             // 
             // dirTree
             // 
-            this.dirTree.AllowDrop = true;
             this.dirTree.CheckBoxes = true;
             this.dirTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dirTree.Location = new System.Drawing.Point(0, 0);
             this.dirTree.Name = "dirTree";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "Node1 Child Sample";
-            treeNode2.Name = "Node0";
-            treeNode2.Text = "Node0 Sample";
-            this.dirTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
             this.dirTree.Size = new System.Drawing.Size(250, 397);
             this.dirTree.TabIndex = 2;
             this.dirTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.dirTree_AfterSelect);
-            this.dirTree.DragDrop += new System.Windows.Forms.DragEventHandler(this.dirTree_DragDrop);
-            this.dirTree.DragEnter += new System.Windows.Forms.DragEventHandler(this.dirTree_DragEnter);
             // 
             // splitContainer1
             // 
@@ -212,6 +148,14 @@
             this.splitContainer1.SplitterDistance = 250;
             this.splitContainer1.TabIndex = 4;
             // 
+            // backgroundWorker
+            // 
+            this.backgroundWorker.WorkerReportsProgress = true;
+            this.backgroundWorker.WorkerSupportsCancellation = true;
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
+            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
+            // 
             // ptBox
             // 
             this.ptBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -226,13 +170,57 @@
             this.ptBox.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.ptBox_LoadCompleted);
             this.ptBox.SizeChanged += new System.EventHandler(this.ptBox_SizeChanged);
             // 
-            // backgroundWorker
+            // startallBtn
             // 
-            this.backgroundWorker.WorkerReportsProgress = true;
-            this.backgroundWorker.WorkerSupportsCancellation = true;
-            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
-            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
-            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
+            this.startallBtn.AutoSize = false;
+            this.startallBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.startallBtn.Image = global::PhotoFraming.Properties.Resources.StartAllIco;
+            this.startallBtn.Name = "startallBtn";
+            this.startallBtn.Size = new System.Drawing.Size(46, 44);
+            this.startallBtn.ToolTipText = "Process All Images";
+            this.startallBtn.Click += new System.EventHandler(this.startallBtn_Click);
+            // 
+            // startselectedBtn
+            // 
+            this.startselectedBtn.AutoSize = false;
+            this.startselectedBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.startselectedBtn.Image = global::PhotoFraming.Properties.Resources.StartIco;
+            this.startselectedBtn.Name = "startselectedBtn";
+            this.startselectedBtn.Size = new System.Drawing.Size(46, 44);
+            this.startselectedBtn.ToolTipText = "Process Selected Images";
+            this.startselectedBtn.Click += new System.EventHandler(this.startselectedBtn_Click);
+            // 
+            // StopProcessBtn
+            // 
+            this.StopProcessBtn.AutoSize = false;
+            this.StopProcessBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.StopProcessBtn.Enabled = false;
+            this.StopProcessBtn.Image = global::PhotoFraming.Properties.Resources.StopIco;
+            this.StopProcessBtn.Name = "StopProcessBtn";
+            this.StopProcessBtn.Size = new System.Drawing.Size(46, 44);
+            this.StopProcessBtn.ToolTipText = "Stop Processing";
+            this.StopProcessBtn.Click += new System.EventHandler(this.stopProcessBtn_Click);
+            // 
+            // removeDirBtn
+            // 
+            this.removeDirBtn.AutoSize = false;
+            this.removeDirBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.removeDirBtn.Image = global::PhotoFraming.Properties.Resources.RemoveIco;
+            this.removeDirBtn.Name = "removeDirBtn";
+            this.removeDirBtn.Size = new System.Drawing.Size(46, 44);
+            this.removeDirBtn.ToolTipText = "Remove Selected Images";
+            this.removeDirBtn.Click += new System.EventHandler(this.removeDirBtn_Click);
+            // 
+            // helpToolStripButton
+            // 
+            this.helpToolStripButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.helpToolStripButton.AutoSize = false;
+            this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.helpToolStripButton.Image = global::PhotoFraming.Properties.Resources.HelpIco;
+            this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.helpToolStripButton.Name = "helpToolStripButton";
+            this.helpToolStripButton.Size = new System.Drawing.Size(46, 44);
+            this.helpToolStripButton.Text = "He&lp";
             // 
             // Processing
             // 
@@ -265,8 +253,6 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton openToolStripButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
@@ -281,5 +267,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
+        private System.Windows.Forms.ToolStripButton StopProcessBtn;
+        private System.Windows.Forms.ToolStripProgressBar progressBar;
     }
 }
