@@ -70,17 +70,5 @@ namespace PhotoFraming.Properties {
                 this["RightSideCaption"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoFrameColor {
-            get {
-                return ((bool)(this["AutoFrameColor"]));
-            }
-            set {
-                this["AutoFrameColor"] = value;
-            }
-        }
     }
 }

@@ -15,7 +15,7 @@ namespace PhotoFraming
     public partial class mainForm : Form
     {
         int ptBoxDefault_Width, ptBoxDefault_Height;
-        Boolean AllowDropNotProcessing;
+        Boolean AllowDropNotProcessing, ptBoxAutoScale;
         SettingsForm settingsForm;
 
         public mainForm()
@@ -160,9 +160,6 @@ namespace PhotoFraming
                 }
             }
         }
-
-
-        Boolean ptBoxAutoScale;
 
         private void dirTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -309,7 +306,7 @@ namespace PhotoFraming
             // No Selected Node
             StopUIProcessing();
         }
-        
+
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             e.Result = e.Argument;
@@ -323,14 +320,14 @@ namespace PhotoFraming
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
             backgroundWorker.ReportProgress(10, "Loading Photo");
             Image imgPhoto = Image.FromFile(sourcefile, true);
-            int FrameThickness = (int)((double)Properties.Settings.Default.FrameThickness * 0.01 * imgPhoto.Width);
-            int ImageLengthLimit = 1280; // 1280 pixels
+            int ImageLengthLimit = 1280, ImageWidth, ImageHeight;
+            resizeImage(new Size(imgPhoto.Width, imgPhoto.Height), ImageLengthLimit, out ImageWidth, out ImageHeight);
+            int FrameThickness = (int)((double)Properties.Settings.Default.FrameThickness * 0.01 * ImageWidth);
+            int FrameThicknessTwo = 2 * FrameThickness;
 
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
             backgroundWorker.ReportProgress(30, "Processing Photo");
-            Bitmap bOutput = new Bitmap(imgPhoto.Width + 2 * FrameThickness,
-                imgPhoto.Height + 2 * FrameThickness,
-                imgPhoto.PixelFormat);
+            Bitmap bOutput = new Bitmap(ImageWidth + FrameThicknessTwo, ImageHeight + FrameThicknessTwo, imgPhoto.PixelFormat);
             bOutput.SetResolution(imgPhoto.HorizontalResolution, imgPhoto.VerticalResolution);
 
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
@@ -341,20 +338,18 @@ namespace PhotoFraming
             gCanvas.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
 
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
-            backgroundWorker.ReportProgress(70, "Processing Photo");
-            Pen gPen = new Pen(Color.White, FrameThickness);
-            int halfFrameThickness = FrameThickness / 2;
-
+            backgroundWorker.ReportProgress(60, "Processing Photo");
             gCanvas.FillRectangle(new SolidBrush(Properties.Settings.Default.FrameColor), 0, 0, bOutput.Width, bOutput.Height);
+            gCanvas.DrawImage(imgPhoto, FrameThickness, FrameThickness, bOutput.Width - FrameThicknessTwo, bOutput.Height - FrameThicknessTwo);
 
-            //gCanvas.DrawRectangle(gPen, halfFrameThickness, halfFrameThickness,
-            //    bOutput.Width - FrameThickness, bOutput.Height - FrameThickness);
-            gCanvas.DrawImageUnscaled(imgPhoto, new Point(FrameThickness, FrameThickness));
+            #region draw Caption
+            //gCanvas.DrawString(
+            #endregion
 
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
-            backgroundWorker.ReportProgress(90, "Saving Processed Photo");
+            backgroundWorker.ReportProgress(80, "Saving Processed Photo");
             String outputfile = Path.Combine(dir, filename + "-result.jpg");
-            for(int i = 2 ; File.Exists(outputfile) ; i++)
+            for (int i = 2; File.Exists(outputfile); i++)
             {
                 outputfile = Path.Combine(dir, filename + "-result" + i.ToString() + ".jpg");
             }
@@ -407,7 +402,6 @@ namespace PhotoFraming
             backgroundWorker.CancelAsync();
         }
 
-        
         private void settingsBtn_Click(object sender, EventArgs e)
         {
             if (settingsBtn.Checked)
@@ -426,6 +420,35 @@ namespace PhotoFraming
             {
                 settingsBtn.Checked = false;
             }
+        }
+
+        private void resizeImage(Size sourceSize, int lengthLimit, out int newWidth, out int newHeight)
+        {
+            int sourceWidth = sourceSize.Width;
+            int sourceHeight = sourceSize.Height;
+
+            float nPercent = 0;
+            float nPercentW = 0;
+            float nPercentH = 0;
+
+            nPercentW = ((float)lengthLimit / (float)sourceWidth);
+            nPercentH = ((float)lengthLimit / (float)sourceHeight);
+
+            if ((nPercentW + nPercentH) >= 2)
+            {
+                nPercent = 1;
+            }
+            else if (nPercentH < nPercentW)
+            {
+                nPercent = nPercentH;
+            }
+            else
+            {
+                nPercent = nPercentW;
+            }
+
+            newWidth = (int)(sourceWidth * nPercent);
+            newHeight = (int)(sourceHeight * nPercent);
         }
     }
 }

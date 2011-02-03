@@ -20,3 +20,16 @@ C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-Pho
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\bin\Debug\EZ-PhotoFraming.exe.config
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\PhotoFraming.mainForm.resources
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\PhotoFraming.SettingsForm.resources
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\bin\Debug\EZ-PhotoFraming.exe.config
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\Interop.IWshRuntimeLibrary.dll
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ-PhotoFraming.csproj.ResolveComReference.cache
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ-PhotoFraming.exe
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ-PhotoFraming.pdb
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\bin\Debug\EZ-PhotoFraming.exe
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\bin\Debug\EZ-PhotoFraming.pdb
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\PhotoFraming.mainForm.resources
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\PhotoFraming.Properties.Resources.resources
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\PhotoFraming.SettingsForm.resources
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\GenerateResource.write.1.tlog
