@@ -320,9 +320,9 @@ namespace PhotoFraming
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
             backgroundWorker.ReportProgress(10, "Loading Photo");
             Image imgPhoto = Image.FromFile(sourcefile, true);
-            int ImageLengthLimit = 1280, ImageWidth, ImageHeight;
-            resizeImage(new Size(imgPhoto.Width, imgPhoto.Height), ImageLengthLimit, out ImageWidth, out ImageHeight);
-            int FrameThickness = (int)((double)Properties.Settings.Default.FrameThickness * 0.01 * ImageWidth);
+            int ImageLengthLimit = 1280, ImageWidth, ImageHeight, FrameThickness;
+            Helper.ResizeImage(new Size(imgPhoto.Width, imgPhoto.Height), (double)Properties.Settings.Default.FrameThickness * 0.01, ImageLengthLimit,
+                out ImageWidth, out ImageHeight, out FrameThickness);
             int FrameThicknessTwo = 2 * FrameThickness;
 
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
@@ -343,7 +343,23 @@ namespace PhotoFraming
             gCanvas.DrawImage(imgPhoto, FrameThickness, FrameThickness, bOutput.Width - FrameThicknessTwo, bOutput.Height - FrameThicknessTwo);
 
             #region draw Caption
-            //gCanvas.DrawString(
+            Font gFont = new Font(Properties.Settings.Default.CaptionFont.FontFamily,
+                                    (float)(FrameThickness * Properties.Settings.Default.CaptionSize),
+                                    Properties.Settings.Default.CaptionFont.Style,
+                                    Properties.Settings.Default.CaptionFont.Unit,
+                                    Properties.Settings.Default.CaptionFont.GdiCharSet,
+                                    Properties.Settings.Default.CaptionFont.GdiVerticalFont);
+            StringFormat gStringFormat = new StringFormat();
+            gStringFormat.Alignment = StringAlignment.Far;
+            gCanvas.DrawString(Properties.Settings.Default.LeftSideCaption,
+                                gFont,
+                                new SolidBrush(Properties.Settings.Default.CaptionFontColor),
+                                new Point(FrameThickness, bOutput.Height - FrameThickness));
+            gCanvas.DrawString(Properties.Settings.Default.RightSideCaption,
+                                gFont,
+                                new SolidBrush(Properties.Settings.Default.CaptionFontColor),
+                                new Point(bOutput.Width - FrameThickness, bOutput.Height - FrameThickness),
+                                gStringFormat);
             #endregion
 
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
@@ -420,35 +436,6 @@ namespace PhotoFraming
             {
                 settingsBtn.Checked = false;
             }
-        }
-
-        private void resizeImage(Size sourceSize, int lengthLimit, out int newWidth, out int newHeight)
-        {
-            int sourceWidth = sourceSize.Width;
-            int sourceHeight = sourceSize.Height;
-
-            float nPercent = 0;
-            float nPercentW = 0;
-            float nPercentH = 0;
-
-            nPercentW = ((float)lengthLimit / (float)sourceWidth);
-            nPercentH = ((float)lengthLimit / (float)sourceHeight);
-
-            if ((nPercentW + nPercentH) >= 2)
-            {
-                nPercent = 1;
-            }
-            else if (nPercentH < nPercentW)
-            {
-                nPercent = nPercentH;
-            }
-            else
-            {
-                nPercent = nPercentW;
-            }
-
-            newWidth = (int)(sourceWidth * nPercent);
-            newHeight = (int)(sourceHeight * nPercent);
         }
     }
 }

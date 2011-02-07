@@ -49,7 +49,7 @@ namespace PhotoFraming.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Left")]
         public string LeftSideCaption {
             get {
                 return ((string)(this["LeftSideCaption"]));
@@ -61,13 +61,49 @@ namespace PhotoFraming.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Right")]
         public string RightSideCaption {
             get {
                 return ((string)(this["RightSideCaption"]));
             }
             set {
                 this["RightSideCaption"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Segoe UI, 12pt")]
+        public global::System.Drawing.Font CaptionFont {
+            get {
+                return ((global::System.Drawing.Font)(this["CaptionFont"]));
+            }
+            set {
+                this["CaptionFont"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        public global::System.Drawing.Color CaptionFontColor {
+            get {
+                return ((global::System.Drawing.Color)(this["CaptionFontColor"]));
+            }
+            set {
+                this["CaptionFontColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.65")]
+        public decimal CaptionSize {
+            get {
+                return ((decimal)(this["CaptionSize"]));
+            }
+            set {
+                this["CaptionSize"] = value;
             }
         }
     }

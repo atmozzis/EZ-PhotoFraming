@@ -64,5 +64,49 @@ namespace PhotoFraming
                     return codecs[i];
             return null;
         }
+
+        static public void ResizeImage(Size sourceSize, double borderPercent, int lengthLimit,
+                                        out int newWidth, out int newHeight, out int frameThickness)
+        {
+            double Width = sourceSize.Width * (borderPercent * 2 + 1);
+            double Height = sourceSize.Height + (sourceSize.Width * borderPercent * 2);
+
+            double nPercentW = 0;
+            double nPercentH = 0;
+
+            nPercentW = lengthLimit / Width;
+            nPercentH = lengthLimit / Height;
+
+            if ((nPercentW + nPercentH) >= 2)
+            {
+                newWidth = sourceSize.Width;
+                newHeight = sourceSize.Height;
+                frameThickness = (int)(newWidth * borderPercent);
+            }
+            else if (nPercentH < nPercentW)
+            {
+                Width = Width * nPercentH;
+                Height = lengthLimit;
+
+                Width = Width / (borderPercent * 2 + 1);
+                Height = Height - (Width * borderPercent * 2);
+                frameThickness = (int)((lengthLimit - Width) / 2);
+
+                newWidth = (int)Width;
+                newHeight = lengthLimit - 2 * frameThickness;
+            }
+            else
+            {
+                Width = lengthLimit;
+                Height = Height * nPercentW;
+
+                Width = Width / (borderPercent * 2 + 1);
+                Height = Height - (Width * borderPercent * 2);
+                frameThickness = (int)((lengthLimit - Width) / 2);
+
+                newWidth = lengthLimit - 2 * frameThickness;
+                newHeight = (int)Height;
+            }
+        }
     }
 }

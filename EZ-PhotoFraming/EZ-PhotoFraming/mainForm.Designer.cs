@@ -73,7 +73,7 @@
             this.toolStripSeparator1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(742, 47);
+            this.toolStrip1.Size = new System.Drawing.Size(989, 47);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -168,22 +168,23 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.progressBar,
             this.statusLbl});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 444);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 549);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(742, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(989, 25);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // progressBar
             // 
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(100, 16);
+            this.progressBar.Size = new System.Drawing.Size(133, 20);
             this.progressBar.Visible = false;
             // 
             // statusLbl
             // 
             this.statusLbl.Name = "statusLbl";
-            this.statusLbl.Size = new System.Drawing.Size(38, 17);
+            this.statusLbl.Size = new System.Drawing.Size(49, 20);
             this.statusLbl.Text = "Status";
             // 
             // dirTree
@@ -191,8 +192,9 @@
             this.dirTree.CheckBoxes = true;
             this.dirTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dirTree.Location = new System.Drawing.Point(0, 0);
+            this.dirTree.Margin = new System.Windows.Forms.Padding(4);
             this.dirTree.Name = "dirTree";
-            this.dirTree.Size = new System.Drawing.Size(250, 397);
+            this.dirTree.Size = new System.Drawing.Size(250, 502);
             this.dirTree.TabIndex = 2;
             this.dirTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.dirTree_AfterSelect);
             // 
@@ -201,6 +203,7 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 47);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -212,8 +215,9 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.ptBox);
             this.splitContainer1.Panel2MinSize = 250;
-            this.splitContainer1.Size = new System.Drawing.Size(742, 397);
+            this.splitContainer1.Size = new System.Drawing.Size(989, 502);
             this.splitContainer1.SplitterDistance = 250;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 4;
             // 
             // ptBox
@@ -222,8 +226,9 @@
             this.ptBox.ErrorImage = global::PhotoFraming.Properties.Resources.ErrorIco;
             this.ptBox.InitialImage = global::PhotoFraming.Properties.Resources.LoadingIco;
             this.ptBox.Location = new System.Drawing.Point(0, 0);
+            this.ptBox.Margin = new System.Windows.Forms.Padding(4);
             this.ptBox.Name = "ptBox";
-            this.ptBox.Size = new System.Drawing.Size(488, 397);
+            this.ptBox.Size = new System.Drawing.Size(734, 502);
             this.ptBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.ptBox.TabIndex = 0;
             this.ptBox.TabStop = false;
@@ -238,18 +243,19 @@
             this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
             this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_RunWorkerCompleted);
             // 
-            // Processing
+            // mainForm
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 466);
+            this.ClientSize = new System.Drawing.Size(989, 574);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(750, 500);
-            this.Name = "Processing";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(994, 605);
+            this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EZ PhotoFraming";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.dirTree_DragDrop);

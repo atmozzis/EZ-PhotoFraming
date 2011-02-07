@@ -34,15 +34,14 @@ namespace PhotoFraming
             }
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            if (radioButton1.Checked)
+            fontDialog1.Font = label5.Font;
+            fontDialog1.Color = label5.ForeColor;
+            if (fontDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                this.button1.Enabled = false;
-            }
-            else
-            {
-                this.button1.Enabled = true;
+                label5.Font = fontDialog1.Font;
+                label5.ForeColor = fontDialog1.Color;
             }
         }
     }

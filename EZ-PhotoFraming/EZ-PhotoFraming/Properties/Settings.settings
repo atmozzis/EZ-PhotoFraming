@@ -9,10 +9,19 @@
       <Value Profile="(Default)">White</Value>
     </Setting>
     <Setting Name="LeftSideCaption" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Left</Value>
     </Setting>
     <Setting Name="RightSideCaption" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Right</Value>
+    </Setting>
+    <Setting Name="CaptionFont" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Segoe UI, 12pt</Value>
+    </Setting>
+    <Setting Name="CaptionFontColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Black</Value>
+    </Setting>
+    <Setting Name="CaptionSize" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.65</Value>
     </Setting>
   </Settings>
 </SettingsFile>
