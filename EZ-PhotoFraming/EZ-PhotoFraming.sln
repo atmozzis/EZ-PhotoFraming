@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ-PhotoFraming", "EZ-PhotoFraming\EZ-PhotoFraming.csproj", "{20B985B8-F37C-4D4B-ACD8-DDBB07167511}"
 EndProject
-Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "EZ PhotoFraming", "EZ PhotoFraming\EZ PhotoFraming.isproj", "{FEC684DB-5B23-4FED-99E8-92D0B4AEA5C7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|x86 = CD_ROM|x86
@@ -24,16 +22,6 @@ Global
 		{20B985B8-F37C-4D4B-ACD8-DDBB07167511}.Release|x86.Build.0 = Release|x86
 		{20B985B8-F37C-4D4B-ACD8-DDBB07167511}.SingleImage|x86.ActiveCfg = Release|x86
 		{20B985B8-F37C-4D4B-ACD8-DDBB07167511}.SingleImage|x86.Build.0 = Release|x86
-		{FEC684DB-5B23-4FED-99E8-92D0B4AEA5C7}.CD_ROM|x86.ActiveCfg = CD_ROM
-		{FEC684DB-5B23-4FED-99E8-92D0B4AEA5C7}.CD_ROM|x86.Build.0 = CD_ROM
-		{FEC684DB-5B23-4FED-99E8-92D0B4AEA5C7}.Debug|x86.ActiveCfg = DVD-5
-		{FEC684DB-5B23-4FED-99E8-92D0B4AEA5C7}.Debug|x86.Build.0 = DVD-5
-		{FEC684DB-5B23-4FED-99E8-92D0B4AEA5C7}.DVD-5|x86.ActiveCfg = DVD-5
-		{FEC684DB-5B23-4FED-99E8-92D0B4AEA5C7}.DVD-5|x86.Build.0 = DVD-5
-		{FEC684DB-5B23-4FED-99E8-92D0B4AEA5C7}.Release|x86.ActiveCfg = SingleImage
-		{FEC684DB-5B23-4FED-99E8-92D0B4AEA5C7}.Release|x86.Build.0 = SingleImage
-		{FEC684DB-5B23-4FED-99E8-92D0B4AEA5C7}.SingleImage|x86.ActiveCfg = SingleImage
-		{FEC684DB-5B23-4FED-99E8-92D0B4AEA5C7}.SingleImage|x86.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

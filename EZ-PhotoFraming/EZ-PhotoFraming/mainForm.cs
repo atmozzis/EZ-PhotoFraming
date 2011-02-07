@@ -437,5 +437,10 @@ namespace PhotoFraming
                 settingsBtn.Checked = false;
             }
         }
+
+        private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+        }
     }
 }

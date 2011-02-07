@@ -252,6 +252,7 @@
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EZ PhotoFraming";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainForm_FormClosing);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.dirTree_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.dirTree_DragEnter);
             this.toolStrip1.ResumeLayout(false);
