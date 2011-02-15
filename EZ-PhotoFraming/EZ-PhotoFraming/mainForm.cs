@@ -316,6 +316,7 @@ namespace EZ_PhotoFraming
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
             backgroundWorker.ReportProgress(10, "Loading Photo");
             Image imgPhoto = Image.FromFile(sourcefile, true);
+            System.Drawing.Imaging.PropertyItem[] metadata = imgPhoto.PropertyItems;
             int ImageWidth, ImageHeight, FrameThickness;
             Helper.ResizeImage(new Size(imgPhoto.Width, imgPhoto.Height), (double)Properties.Settings.Default.FrameThickness * 0.01, ImageLengthLimit,
                 out ImageWidth, out ImageHeight, out FrameThickness);
@@ -325,6 +326,11 @@ namespace EZ_PhotoFraming
             backgroundWorker.ReportProgress(30, "Processing Photo");
             Bitmap bOutput = new Bitmap(ImageWidth + FrameThicknessTwo, ImageHeight + FrameThicknessTwo, imgPhoto.PixelFormat);
             bOutput.SetResolution(imgPhoto.HorizontalResolution, imgPhoto.VerticalResolution);
+            foreach (var data in imgPhoto.PropertyItems)
+            {
+                bOutput.SetPropertyItem(data);
+            }
+            bOutput.Tag = imgPhoto.Tag;
 
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
             backgroundWorker.ReportProgress(50, "Processing Photo");
