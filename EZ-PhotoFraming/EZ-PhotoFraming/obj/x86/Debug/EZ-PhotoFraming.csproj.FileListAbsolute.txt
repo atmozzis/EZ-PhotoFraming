@@ -12,14 +12,11 @@ C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-Pho
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\bin\Debug\EZ-PhotoFraming.exe
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\bin\Debug\EZ-PhotoFraming.pdb
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\PhotoFraming.Properties.Resources.resources
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\Interop.IWshRuntimeLibrary.dll
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ-PhotoFraming.csproj.ResolveComReference.cache
 C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\bin\Debug\EZ-PhotoFraming.exe.config
-C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\PhotoFraming.mainForm.resources
-C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\PhotoFraming.SettingsForm.resources
 E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\bin\Debug\EZ-PhotoFraming.exe.config
 E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\Interop.IWshRuntimeLibrary.dll
 E:\My Win7 Documents\Desktop\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ-PhotoFraming.csproj.ResolveComReference.cache
@@ -50,3 +47,11 @@ E:\My Win7 Documents\Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-Ph
 E:\My Win7 Documents\Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\bin\Debug\EZ-PhotoFraming.application
 E:\My Win7 Documents\Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ-PhotoFraming.exe.manifest
 E:\My Win7 Documents\Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ-PhotoFraming.application
+C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\bin\Debug\EZ-PhotoFraming.exe.manifest
+C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\bin\Debug\EZ-PhotoFraming.application
+C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ-PhotoFraming.exe.manifest
+C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ-PhotoFraming.application
+C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ-PhotoFraming.g.resources
+C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ_PhotoFraming.mainForm.resources
+C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ_PhotoFraming.Properties.Resources.resources
+C:\Documents and Settings\moeaun\My Documents\Visual Studio 2010\Projects\EZ-PhotoFraming\EZ-PhotoFraming\EZ-PhotoFraming\obj\x86\Debug\EZ_PhotoFraming.SettingsForm.resources

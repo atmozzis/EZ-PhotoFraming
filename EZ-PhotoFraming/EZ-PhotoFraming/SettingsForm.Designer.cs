@@ -1,4 +1,4 @@
-﻿namespace PhotoFraming
+﻿namespace EZ_PhotoFraming
 {
     partial class SettingsForm
     {
@@ -72,13 +72,13 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = global::PhotoFraming.Properties.Settings.Default.FrameColor;
+            this.panel1.BackColor = global::EZ_PhotoFraming.Properties.Settings.Default.FrameColor;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::PhotoFraming.Properties.Settings.Default, "FrameColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.panel1.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::EZ_PhotoFraming.Properties.Settings.Default, "FrameColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.panel1.Location = new System.Drawing.Point(9, 73);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(253, 80);
@@ -108,10 +108,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::PhotoFraming.Properties.Settings.Default, "CaptionFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.label5.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::PhotoFraming.Properties.Settings.Default, "CaptionFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.label5.Font = global::PhotoFraming.Properties.Settings.Default.CaptionFont;
-            this.label5.ForeColor = global::PhotoFraming.Properties.Settings.Default.CaptionFontColor;
+            this.label5.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::EZ_PhotoFraming.Properties.Settings.Default, "CaptionFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.label5.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::EZ_PhotoFraming.Properties.Settings.Default, "CaptionFontColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.label5.Font = global::EZ_PhotoFraming.Properties.Settings.Default.CaptionFont;
+            this.label5.ForeColor = global::EZ_PhotoFraming.Properties.Settings.Default.CaptionFontColor;
             this.label5.Location = new System.Drawing.Point(3, 43);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 21);
@@ -122,8 +122,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::PhotoFraming.Properties.Settings.Default, "CaptionFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.label3.Font = global::PhotoFraming.Properties.Settings.Default.CaptionFont;
+            this.label3.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::EZ_PhotoFraming.Properties.Settings.Default, "CaptionFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.label3.Font = global::EZ_PhotoFraming.Properties.Settings.Default.CaptionFont;
             this.label3.Location = new System.Drawing.Point(3, 8);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 21);
@@ -150,7 +150,7 @@
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PhotoFraming.Properties.Settings.Default, "CaptionSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDown2.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::EZ_PhotoFraming.Properties.Settings.Default, "CaptionSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numericUpDown2.DecimalPlaces = 2;
             this.numericUpDown2.Increment = new decimal(new int[] {
             1,
@@ -167,7 +167,7 @@
             this.numericUpDown2.Size = new System.Drawing.Size(60, 20);
             this.numericUpDown2.TabIndex = 4;
             this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDown2.Value = global::PhotoFraming.Properties.Settings.Default.CaptionSize;
+            this.numericUpDown2.Value = global::EZ_PhotoFraming.Properties.Settings.Default.CaptionSize;
             // 
             // label7
             // 
@@ -180,13 +180,13 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::PhotoFraming.Properties.Settings.Default, "FrameThickness", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::EZ_PhotoFraming.Properties.Settings.Default, "FrameThickness", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numericUpDown1.Location = new System.Drawing.Point(183, 19);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(60, 20);
             this.numericUpDown1.TabIndex = 1;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDown1.Value = global::PhotoFraming.Properties.Settings.Default.FrameThickness;
+            this.numericUpDown1.Value = global::EZ_PhotoFraming.Properties.Settings.Default.FrameThickness;
             // 
             // label1
             // 
@@ -212,12 +212,12 @@
             // 
             // textBox2
             // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::PhotoFraming.Properties.Settings.Default, "RightSideCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::EZ_PhotoFraming.Properties.Settings.Default, "RightSideCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox2.Location = new System.Drawing.Point(119, 44);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(143, 20);
             this.textBox2.TabIndex = 3;
-            this.textBox2.Text = global::PhotoFraming.Properties.Settings.Default.RightSideCaption;
+            this.textBox2.Text = global::EZ_PhotoFraming.Properties.Settings.Default.RightSideCaption;
             // 
             // label4
             // 
@@ -230,12 +230,12 @@
             // 
             // textBox1
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::PhotoFraming.Properties.Settings.Default, "LeftSideCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::EZ_PhotoFraming.Properties.Settings.Default, "LeftSideCaption", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBox1.Location = new System.Drawing.Point(119, 18);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(143, 20);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = global::PhotoFraming.Properties.Settings.Default.LeftSideCaption;
+            this.textBox1.Text = global::EZ_PhotoFraming.Properties.Settings.Default.LeftSideCaption;
             // 
             // label6
             // 

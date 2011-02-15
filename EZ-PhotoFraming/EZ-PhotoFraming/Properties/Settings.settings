@@ -21,7 +21,7 @@
       <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="CaptionSize" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">0.65</Value>
+      <Value Profile="(Default)">0.80</Value>
     </Setting>
   </Settings>
 </SettingsFile>

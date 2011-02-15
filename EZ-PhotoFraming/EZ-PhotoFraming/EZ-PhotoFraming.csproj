@@ -8,7 +8,7 @@
     <ProjectGuid>{20B985B8-F37C-4D4B-ACD8-DDBB07167511}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PhotoFraming</RootNamespace>
+    <RootNamespace>EZ_PhotoFraming</RootNamespace>
     <AssemblyName>EZ-PhotoFraming</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -24,9 +24,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ProductName>EZ-PhotoFraming</ProductName>
+    <PublisherName>EZ-PhotoFraming</PublisherName>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -59,16 +62,18 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>EZ_PhotoFraming.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>images\favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -129,29 +134,29 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\069349-blue-chrome-rain-icon-alphanumeric-icon_091.png" />
+    <Resource Include="images\069349-blue-chrome-rain-icon-alphanumeric-icon_091.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\000619-blue-chrome-rain-icon-media-a-media27-pause-sign.png" />
+    <Resource Include="images\000619-blue-chrome-rain-icon-media-a-media27-pause-sign.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\000620-blue-chrome-rain-icon-media-a-media28-stop.png" />
+    <Resource Include="images\000620-blue-chrome-rain-icon-media-a-media28-stop.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\000614-blue-chrome-rain-icon-media-a-media22-arrow-forward1.png" />
-    <None Include="images\000616-blue-chrome-rain-icon-media-a-media24-arrows-seek-forward.png" />
-    <None Include="images\004783-blue-chrome-rain-icon-arrows-arrows-rotated.png" />
-    <None Include="images\069345-blue-chrome-rain-icon-alphanumeric-exclamation-point1.png" />
-    <None Include="images\069467-blue-chrome-rain-icon-alphanumeric-x-styled.png" />
+    <Resource Include="images\000614-blue-chrome-rain-icon-media-a-media22-arrow-forward1.png" />
+    <Resource Include="images\000616-blue-chrome-rain-icon-media-a-media24-arrows-seek-forward.png" />
+    <Resource Include="images\004783-blue-chrome-rain-icon-arrows-arrows-rotated.png" />
+    <Resource Include="images\069345-blue-chrome-rain-icon-alphanumeric-exclamation-point1.png" />
+    <Resource Include="images\069467-blue-chrome-rain-icon-alphanumeric-x-styled.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\017749-blue-chrome-rain-icon-symbols-shapes-cube.png" />
+    <Resource Include="images\017749-blue-chrome-rain-icon-symbols-shapes-cube.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\069333-blue-chrome-rain-icon-alphanumeric-caret.png" />
+    <Resource Include="images\069333-blue-chrome-rain-icon-alphanumeric-caret.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\favicon.ico" />
+    <Resource Include="images\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

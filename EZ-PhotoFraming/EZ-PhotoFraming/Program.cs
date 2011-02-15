@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
-namespace PhotoFraming
+namespace EZ_PhotoFraming
 {
     static class Program
     {

@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
-namespace PhotoFraming
+namespace EZ_PhotoFraming
 {
     public partial class mainForm : Form
     {
+        private const int ImageLengthLimit = 1600;
         int ptBoxDefault_Width, ptBoxDefault_Height;
         Boolean AllowDropNotProcessing, ptBoxAutoScale;
         SettingsForm settingsForm;
@@ -320,7 +316,7 @@ namespace PhotoFraming
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
             backgroundWorker.ReportProgress(10, "Loading Photo");
             Image imgPhoto = Image.FromFile(sourcefile, true);
-            int ImageLengthLimit = 1280, ImageWidth, ImageHeight, FrameThickness;
+            int ImageWidth, ImageHeight, FrameThickness;
             Helper.ResizeImage(new Size(imgPhoto.Width, imgPhoto.Height), (double)Properties.Settings.Default.FrameThickness * 0.01, ImageLengthLimit,
                 out ImageWidth, out ImageHeight, out FrameThickness);
             int FrameThicknessTwo = 2 * FrameThickness;
@@ -342,13 +338,24 @@ namespace PhotoFraming
             gCanvas.FillRectangle(new SolidBrush(Properties.Settings.Default.FrameColor), 0, 0, bOutput.Width, bOutput.Height);
             gCanvas.DrawImage(imgPhoto, FrameThickness, FrameThickness, bOutput.Width - FrameThicknessTwo, bOutput.Height - FrameThicknessTwo);
 
-            #region draw Caption
+            #region Draw Caption
+            #region Scale FontSize
+            float rawfontsize = (float)(FrameThickness * Properties.Settings.Default.CaptionSize);
             Font gFont = new Font(Properties.Settings.Default.CaptionFont.FontFamily,
-                                    (float)(FrameThickness * Properties.Settings.Default.CaptionSize),
+                                    rawfontsize,
                                     Properties.Settings.Default.CaptionFont.Style,
                                     Properties.Settings.Default.CaptionFont.Unit,
                                     Properties.Settings.Default.CaptionFont.GdiCharSet,
                                     Properties.Settings.Default.CaptionFont.GdiVerticalFont);
+            SizeF extent = gCanvas.MeasureString(Properties.Settings.Default.LeftSideCaption, gFont);
+            float scaledfontsize = rawfontsize * (rawfontsize / extent.Height);
+            gFont = new Font(Properties.Settings.Default.CaptionFont.FontFamily,
+                                    scaledfontsize,
+                                    Properties.Settings.Default.CaptionFont.Style,
+                                    Properties.Settings.Default.CaptionFont.Unit,
+                                    Properties.Settings.Default.CaptionFont.GdiCharSet,
+                                    Properties.Settings.Default.CaptionFont.GdiVerticalFont);
+            #endregion
             StringFormat gStringFormat = new StringFormat();
             gStringFormat.Alignment = StringAlignment.Far;
             gCanvas.DrawString(Properties.Settings.Default.LeftSideCaption,

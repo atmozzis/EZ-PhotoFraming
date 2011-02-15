@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PhotoFraming.Properties {
+namespace EZ_PhotoFraming.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -97,7 +97,7 @@ namespace PhotoFraming.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.65")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.80")]
         public decimal CaptionSize {
             get {
                 return ((decimal)(this["CaptionSize"]));

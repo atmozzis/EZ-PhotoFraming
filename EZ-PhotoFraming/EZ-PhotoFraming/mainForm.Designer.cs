@@ -1,4 +1,4 @@
-﻿namespace PhotoFraming
+﻿namespace EZ_PhotoFraming
 {
     partial class mainForm
     {
@@ -81,7 +81,7 @@
             // 
             this.startallBtn.AutoSize = false;
             this.startallBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.startallBtn.Image = global::PhotoFraming.Properties.Resources.StartAllIco;
+            this.startallBtn.Image = global::EZ_PhotoFraming.Properties.Resources.StartAllIco;
             this.startallBtn.Name = "startallBtn";
             this.startallBtn.Size = new System.Drawing.Size(46, 44);
             this.startallBtn.ToolTipText = "Process All Images";
@@ -91,7 +91,7 @@
             // 
             this.startselectedBtn.AutoSize = false;
             this.startselectedBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.startselectedBtn.Image = global::PhotoFraming.Properties.Resources.StartIco;
+            this.startselectedBtn.Image = global::EZ_PhotoFraming.Properties.Resources.StartIco;
             this.startselectedBtn.Name = "startselectedBtn";
             this.startselectedBtn.Size = new System.Drawing.Size(46, 44);
             this.startselectedBtn.ToolTipText = "Process Selected Images";
@@ -102,7 +102,7 @@
             this.StopProcessBtn.AutoSize = false;
             this.StopProcessBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.StopProcessBtn.Enabled = false;
-            this.StopProcessBtn.Image = global::PhotoFraming.Properties.Resources.StopIco;
+            this.StopProcessBtn.Image = global::EZ_PhotoFraming.Properties.Resources.StopIco;
             this.StopProcessBtn.Name = "StopProcessBtn";
             this.StopProcessBtn.Size = new System.Drawing.Size(46, 44);
             this.StopProcessBtn.ToolTipText = "Stop Processing";
@@ -117,7 +117,7 @@
             // 
             this.removeDirBtn.AutoSize = false;
             this.removeDirBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.removeDirBtn.Image = global::PhotoFraming.Properties.Resources.RemoveIco;
+            this.removeDirBtn.Image = global::EZ_PhotoFraming.Properties.Resources.RemoveIco;
             this.removeDirBtn.Name = "removeDirBtn";
             this.removeDirBtn.Size = new System.Drawing.Size(46, 44);
             this.removeDirBtn.ToolTipText = "Remove Selected Images";
@@ -133,7 +133,7 @@
             this.helpToolStripButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.helpToolStripButton.AutoSize = false;
             this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.helpToolStripButton.Image = global::PhotoFraming.Properties.Resources.HelpIco;
+            this.helpToolStripButton.Image = global::EZ_PhotoFraming.Properties.Resources.HelpIco;
             this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.helpToolStripButton.Name = "helpToolStripButton";
             this.helpToolStripButton.Size = new System.Drawing.Size(46, 44);
@@ -151,7 +151,7 @@
             this.settingsBtn.AutoSize = false;
             this.settingsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.settingsBtn.CheckOnClick = true;
-            this.settingsBtn.Image = global::PhotoFraming.Properties.Resources.SettingsIco;
+            this.settingsBtn.Image = global::EZ_PhotoFraming.Properties.Resources.SettingsIco;
             this.settingsBtn.Name = "settingsBtn";
             this.settingsBtn.Size = new System.Drawing.Size(46, 44);
             this.settingsBtn.ToolTipText = "Configure Settings";
@@ -219,8 +219,8 @@
             // ptBox
             // 
             this.ptBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ptBox.ErrorImage = global::PhotoFraming.Properties.Resources.ErrorIco;
-            this.ptBox.InitialImage = global::PhotoFraming.Properties.Resources.LoadingIco;
+            this.ptBox.ErrorImage = global::EZ_PhotoFraming.Properties.Resources.ErrorIco;
+            this.ptBox.InitialImage = global::EZ_PhotoFraming.Properties.Resources.LoadingIco;
             this.ptBox.Location = new System.Drawing.Point(0, 0);
             this.ptBox.Name = "ptBox";
             this.ptBox.Size = new System.Drawing.Size(488, 397);
