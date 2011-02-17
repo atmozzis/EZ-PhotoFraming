@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EZ-PhotoFraming.exe" size="1359360">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EZ-PhotoFraming.exe" size="1357824">
       <assemblyIdentity name="EZ-PhotoFraming" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>GWl8xz59vsc36IC42dLQf2Oc3d8=</dsig:DigestValue>
+        <dsig:DigestValue>1w0D8OYxEIJGuS8i0MUbHBPXYJ4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

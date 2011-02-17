@@ -81,6 +81,7 @@ namespace EZ_PhotoFraming
         private Boolean checkExtension(String ext)
         {
             ext = ext.Remove(0, 1);
+            ext = ext.ToLower();
             if (ext == "bmp"
                 || ext == "jpg"
                 || ext == "gif"
