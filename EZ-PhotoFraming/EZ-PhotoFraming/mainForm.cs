@@ -342,7 +342,7 @@ namespace EZ_PhotoFraming
 
             if (backgroundWorker.CancellationPending == true) { e.Cancel = true; return; }
             backgroundWorker.ReportProgress(60, "Processing Photo");
-            gCanvas.FillRectangle(new SolidBrush(Properties.Settings.Default.FrameColor), 0, 0, bOutput.Width, bOutput.Height);
+            gCanvas.FillRectangle(new SolidBrush(Properties.Settings.Default.FrameColor), -1, -1, bOutput.Width +1, bOutput.Height + 1);
             gCanvas.DrawImage(imgPhoto, FrameThickness, FrameThickness, bOutput.Width - FrameThicknessTwo, bOutput.Height - FrameThicknessTwo);
 
             #region Draw Caption
